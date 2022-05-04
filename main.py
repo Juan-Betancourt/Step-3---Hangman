@@ -18,17 +18,24 @@ for _ in range(word_length):
 
 
 #Check user_word_selection letter
-while display != (chosen_word):
+end_of_game = False
+
+
+while end_of_game is False:
   user_word_selection = input("Guess a letter associated with the mystery word: ").lower()
+
   for position in range(word_length):
     letter = chosen_word[position]
     print(f"Current position: {position}\n Current letter {letter}\n Guessed letter: {user_word_selection}")
     if letter == user_word_selection:
       display[position] = letter
-    else:
-      break
-
-print(display)
+    if "_" not in display:
+      end_of_game = True
+      print("You Won")
+      
+    
+  
+  print(display)
 
 
 
